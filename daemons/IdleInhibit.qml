@@ -3,6 +3,7 @@ import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
 import Caelestia.State
+import qs.components.misc
 
 Scope {
     id: root
@@ -24,6 +25,14 @@ Scope {
             color: "transparent"
             mask: Region {}
         }
+    }
+
+    // qmllint disable unresolved-type
+    CustomShortcut {
+        // qmllint enable unresolved-type
+        name: "toggleKeepAwake"
+        description: "Toggle Keep Awake mode"
+        onPressed: RuntimeState.inhibitIdle = !RuntimeState.inhibitIdle
     }
 
     IpcHandler {
